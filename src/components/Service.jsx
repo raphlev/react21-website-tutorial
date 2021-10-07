@@ -61,6 +61,11 @@ const Desc = styled.p`
   font-size: 20px;
   margin-top: 20px;
   color: #555;
+  @media only screen and (max-width: 480px) {
+  font-size: 10px;
+  font-weight: bold;
+  margin-top: 5px;
+  }
 `;
 
 const CardContainer = styled.div`
@@ -81,6 +86,10 @@ const Button = styled.button`
   cursor: pointer;
   display: flex;
   align-items: center;
+  @media only screen and (max-width: 480px) {
+    font-size: 10px;
+    padding: 5px;
+  }
 `;
 
 const CloseButton2 = styled.button`
@@ -93,7 +102,21 @@ const CloseButton2 = styled.button`
   padding: 15px;
   margin-top: 50px;
   cursor: pointer;
+  @media only screen and (max-width: 480px) {
+    display: none;
+    font-size: 10px;
+    padding: 5px;
+  }
+`;
 
+const CloseButton = styled.button`
+  position: absolute;
+  background-color: white;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  right: 5px;
+  top: 30%;
 `;
 
 const Icon = styled.img`
@@ -119,17 +142,6 @@ const Buttons = styled.div`
     align-items: flex-start;
   }
 `;
-
-const CloseButton = styled.button`
-  position: absolute;
-  background-color: white;
-  padding: 5px;
-  border: none;
-  border-radius: 5px;
-  right: 5px;
-  top: 30%;
-`;
-
 
 const Service = () => {
   const [open, setOpen] = useState(false);
