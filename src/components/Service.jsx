@@ -22,7 +22,7 @@ const Left = styled.div`
 
 const Image = styled.img`
   display: ${(props) => props.open && "none"};
-  height: 100%;
+  max-width: 70%;
   margin-left: 100px;
 `;
 
@@ -83,6 +83,19 @@ const Button = styled.button`
   align-items: center;
 `;
 
+const CloseButton2 = styled.button`
+  width: 100px;
+  border: none;
+  border-radius: 10px;
+  background-color: darkblue;
+  color: white;
+  font-size: 20px;
+  padding: 15px;
+  margin-top: 50px;
+  cursor: pointer;
+
+`;
+
 const Icon = styled.img`
   width: 20px;
   margin-right: 10px;
@@ -97,6 +110,16 @@ const Modal = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
 `;
 
+const Buttons = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+`;
+
 const CloseButton = styled.button`
   position: absolute;
   background-color: white;
@@ -106,6 +129,7 @@ const CloseButton = styled.button`
   right: 5px;
   top: 30%;
 `;
+
 
 const Service = () => {
   const [open, setOpen] = useState(false);
@@ -136,10 +160,13 @@ const Service = () => {
             <MiniCard />
             <MiniCard />
           </CardContainer>
-          <Button onClick={() => setOpen(true)}>
-            <Icon src={Play} />
-            How it works
-          </Button>
+          <Buttons>
+            <Button onClick={() => setOpen(true)}>
+              <Icon src={Play} />
+              How it works
+            </Button>
+            <CloseButton2 onClick={() => setOpen(false)}>Close</CloseButton2>
+          </Buttons>
         </Wrapper>
       </Right>
       {smallScreen && open && (
